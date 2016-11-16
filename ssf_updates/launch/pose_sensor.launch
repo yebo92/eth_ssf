@@ -1,0 +1,9 @@
+<launch>
+    <node name="pose_sensor" pkg="ssf_updates" type="pose_sensor" clear_params="true" output="screen">
+            <remap from="ssf_core/imu_state_input" to="raw_imu" />
+
+	    <remap from="ssf_core/hector_groundtruth_pose_measurement" to="/ground_truth_to_tf/pose" />
+
+	    <rosparam file="$(find ssf_updates)/pose_sensor_fix.yaml"/>
+    </node>
+</launch>
